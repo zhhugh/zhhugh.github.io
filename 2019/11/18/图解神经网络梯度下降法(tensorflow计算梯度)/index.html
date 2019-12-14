@@ -80,10 +80,10 @@ function activateLightMode(){
 <p>可以看到，越平坦的地方，箭头越短，说明梯度越小，所以梯度反映了图像的变化趋势</p>
 <h2 id="2-通过梯度更新参数，让目标函数（损失函数）趋于极小值"><a href="#2-通过梯度更新参数，让目标函数（损失函数）趋于极小值" class="headerlink" title="2.通过梯度更新参数，让目标函数（损失函数）趋于极小值"></a>2.通过梯度更新参数，让目标函数（损失函数）趋于极小值</h2><p>更新参数的目的是让目标函数找到一个极小值，这个目标函数就是我们说的损失函数</p>
 <p>在函数中的每个变量称为参数，对图二中的例子进一步分析，x，y两个就是参数，如图，x沿着x正方向，所以△x&gt;0,如果函数是上升的，是在上坡的，则△z&gt;0,这时候参数x应该往回走，即应该减小。如果函数是下降，是下坡的，则△z&lt;0,这时候参数x应该往前走，即应该增大，所以参数和梯度的关系应该是相反的</p>
-<p><img alt="mark" data-src="http://markdownsave.oss-cn-beijing.aliyuncs.com/markdown/20191214/220611557.png" class="lazyload"></p>
+<p><img alt data-src="http://markdownsave.oss-cn-beijing.aliyuncs.com/markdown/20191214/220611557.png" class="lazyload"></p>
 <p><img alt="图4" data-src="http://markdownsave.oss-cn-beijing.aliyuncs.com/markdown/20191214/220621597.png" class="lazyload"></p>
 <p>左边是更新后的参数，<img alt data-src="http://markdownsave.oss-cn-beijing.aliyuncs.com/markdown/20191214/222140780.png" class="lazyload">是学习率，防止每次改变的幅度过大，一不小心跳过了最小值点</p>
-<p><img alt data-src="http://markdownsave.oss-cn-beijing.aliyuncs.com/markdown/20191214/220640922.png" class="lazyload"></p>
+<p><img alt="图五" data-src="http://markdownsave.oss-cn-beijing.aliyuncs.com/markdown/20191214/220640922.png" class="lazyload"></p>
 <h2 id="3-通过tensorflow计算梯度"><a href="#3-通过tensorflow计算梯度" class="headerlink" title="3.通过tensorflow计算梯度"></a>3.通过tensorflow计算梯度</h2><p>损失函数定义在</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape:</span><br><span class="line">    tape.watch([w])</span><br><span class="line">    loss = w*x<span class="comment">#在这里定义损失函数</span></span><br></pre></td></tr></table></figure>
 
